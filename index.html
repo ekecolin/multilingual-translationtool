@@ -36,6 +36,46 @@
             margin-bottom: 10px;
             width: calc(100% - 24px);
         }
+        .feedback-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .feedback-radio {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        input[type="radio"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+        }
+        input[type="radio"]:checked::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .feedback-radio label {
+            font-size: 16px;
+            color: #2c3e50;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -90,11 +130,16 @@
         </div>
     </div>
 
-    <div style="margin-bottom: 20px;">
-        <h3>Feedback Section</h3>
-        <p>Which translation do you prefer?</p>
-        <input type="radio" name="feedback" value="DeepL" id="feedbackDeepL"> DeepL<br>
-        <input type="radio" name="feedback" value="Google" id="feedbackGoogle"> Google Translate<br>
+    <div class="feedback-container">
+        <h3 style="margin: 0 20px 0 0;">Feedback Section</h3>
+        <div class="feedback-radio">
+            <input type="radio" name="feedback" value="DeepL" id="feedbackDeepL">
+            <label for="feedbackDeepL">DeepL</label>
+        </div>
+        <div class="feedback-radio">
+            <input type="radio" name="feedback" value="Google" id="feedbackGoogle">
+            <label for="feedbackGoogle">Google Translate</label>
+        </div>
         <button onclick="submitFeedback();" class="ab-normbutton">Submit Feedback</button>
     </div>
 
